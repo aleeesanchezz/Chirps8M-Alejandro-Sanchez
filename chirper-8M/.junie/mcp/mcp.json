@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "C:\\Users\\Alejandro\\.config\\herd-lite\\bin\\php.exe",
+            "args": [
+                "C:\\Users\\Alejandro\\Documents\\DAW2526\\DAW25-26\\EntornoServidor\\Chirps8M\\Laravel\\chirper-8M\\artisan",
+                "boost:mcp"
+            ]
+        }
+    }
+}
