@@ -5,47 +5,46 @@
 
 {{-- Formulario para crear bulos --}}
 <!-- Formulario para crear un bulo -->
-<div class="card bg-base-100 shadow mt-8">
-    <div class="card-body">
-        <form method="POST" action="/bulos">
-            @csrf
-            <div class="form-control w-full mb-2">
-                <textarea
-                    name="texto"
-                    placeholder="Escribe el texto del bulo..."
-                    class="textarea textarea-bordered w-full resize-none"
-                    rows="3"
-                    maxlength="255"
-                    required
-                >{{ old('texto') }}</textarea>
-                @error('texto')
-                    <div class="label">
-                        <span class="label-text-alt text-error">{{ $message }}</span>
-                    </div>
-                @enderror
-            </div>
-            <div class="form-control w-full mb-2">
-                <textarea
-                    name="texto_desmentido"
-                    placeholder="Escribe la explicación/desmentido..."
-                    class="textarea textarea-bordered w-full resize-none"
-                    rows="3"
-                    maxlength="255"
-                    required
-                >{{ old('texto_desmentido') }}</textarea>
-                @error('texto_desmentido')
-                    <div class="label">
-                        <span class="label-text-alt text-error">{{ $message }}</span>
-                    </div>
-                @enderror
-            </div>
-            <div class="mt-4 flex items-center justify-end">
-                <button type="submit" class="btn btn-primary btn-sm">
-                    Publicar Bulo
-                </button>
-            </div>
-        </form>
-    </div>
+<div class="max-w-xl mx-auto mt-8">
+    <form method="POST" action="/bulos" class="bg-white shadow-lg rounded-lg p-6 border border-blue-200">
+        @csrf
+        <h2 class="text-xl font-bold text-blue-700 mb-4 text-center">Publicar un nuevo bulo</h2>
+        <div class="mb-4">
+            <label for="texto" class="block text-sm font-semibold text-gray-700 mb-1">Texto del bulo</label>
+            <textarea
+                id="texto"
+                name="texto"
+                class="w-full border border-blue-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+                placeholder="Escribe el texto del bulo..."
+                rows="3"
+                maxlength="255"
+                required
+            >{{ old('texto') }}</textarea>
+            @error('texto')
+                <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="mb-4">
+            <label for="texto_desmentido" class="block text-sm font-semibold text-gray-700 mb-1">Explicación / Desmentido</label>
+            <textarea
+                id="texto_desmentido"
+                name="texto_desmentido"
+                class="w-full border border-blue-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+                placeholder="Escribe la explicación/desmentido..."
+                rows="3"
+                maxlength="255"
+                required
+            >{{ old('texto_desmentido') }}</textarea>
+            @error('texto_desmentido')
+                <div class="text-red-500 text-xs mt-1">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="flex justify-end">
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow">
+                Publicar Bulo
+            </button>
+        </div>
+    </form>
 </div>
 
     {{-- Lista de bulos --}}
